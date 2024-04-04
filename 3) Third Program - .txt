@@ -1,0 +1,28 @@
+3) Third Program :- 
+
+
+import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
+class GFG {
+    public static void main(String[] args)
+    {
+ 
+        String str = "This is a Java Program to find a count of word";
+ 
+        Map<String, Integer> hashMap = new HashMap<>();
+ 
+        String[] words = str.split(" ");
+ 
+        for (String x : words) {
+        
+            if (hashMap.containsKey(x))
+                hashMap.put(x, hashMap.get(x) + 1);
+ 
+            else
+                hashMap.put(x, 1);
+        }
+ 
+        System.out.println(hashMap);
+    }
+}

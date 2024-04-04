@@ -1,0 +1,49 @@
+2) Second Program :- 
+
+public class Second {
+    public static int maxSum(int[] a1, int[] a2 , int m , int n) {
+        
+        int i = 0, j = 0;
+        int result = 0, sum1 = 0, sum2 = 0;
+
+        while (i < m && j < n) {
+            if (a1[i] < a2[j]) {
+                sum1 += a1[i];
+                i++;
+            } else if (a1[i] > a2[j]) {
+                sum2 += a2[j];
+                j++;
+            } else {
+                result += Math.max(sum1, sum2) + a1[i];
+                sum1 = 0;
+                sum2 = 0;
+
+                while (i < m && j < n && a1[i] == a2[j]) {
+                    result += a1[i];
+                    i++;
+                    j++;
+                }
+            }
+        }
+
+        while (i < m) {
+            sum1 += a1[i];
+            i++;
+        }
+
+        while (j < n) {
+            sum2 += a2[j];
+            j++;
+        }
+
+        result += Math.max(sum1, sum2);
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[] a1 = {2,5,7,8,10,12};
+        int[] a2 = {1,5,7,8,9};
+        System.out.println("Maximum is : " + maxSum(a1, a2,a1.length , a2.length)); 
+    }
+}
